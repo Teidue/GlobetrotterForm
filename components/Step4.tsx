@@ -15,7 +15,8 @@ export default function Step4({ formData, back }: Props) {
       text: "Tu reserva ha sido confirmada exitosamente.",
       icon: "success",
       confirmButtonText: "Aceptar",
-      background: "#f9f9f9",
+      background: "#462255",
+      color: "#fff",
       customClass: {
         popup: "rounded-xl shadow-xl",
       },
@@ -24,7 +25,7 @@ export default function Step4({ formData, back }: Props) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-blue-700 border-b pb-2">
+      <h2 className="text-2xl font-bold text-[var(--color-primary)] border-b pb-2">
         📋 Paso 4: Resumen y Confirmación
       </h2>
 
@@ -103,7 +104,7 @@ export default function Step4({ formData, back }: Props) {
       <div className="flex justify-between pt-6">
         <button
           onClick={back}
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded-lg"
+          className="bg-[var(--color-quaternary)] hover:bg-[var(--color-quaternary-dark)] font-semibold text-gray-800 px-6 py-2 rounded-lg"
         >
           ← Anterior
         </button>

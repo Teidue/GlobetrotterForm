@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import { Titillium_Web } from "next/font/google";
 import "./globals.css";
 
-
 const titilliumWeb = Titillium_Web({
   subsets: ["latin"],
   variable: "--font-titillium-web",
   weight: "400",
 });
-
 
 export const metadata: Metadata = {
   title: "Globetrotter",
@@ -24,6 +22,19 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${titilliumWeb.variable} antialiased`}
+        style={{
+          backgroundImage: "url('/bg4.jpg')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center top%",
+          backgroundAttachment: "fixed",
+          backgroundSize: "cover", // o "contain" si prefieres ver la imagen completa
+          backgroundColor: "#462255",
+          color: "#fff",
+          minHeight: "100vh",
+          width: "100%",
+          margin: "0",
+          padding: "0",
+        }}
       >
         {children}
       </body>

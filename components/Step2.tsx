@@ -80,7 +80,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-blue-700 border-b pb-2">
+      <h2 className="text-2xl font-bold text-[var(--color-primary)] border-b pb-2">
         👥 Paso 2: Información de los Viajeros
       </h2>
 
@@ -96,7 +96,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
           value={localTravelerCount}
           onChange={(e) => setLocalTravelerCount(Number(e.target.value))}
           onBlur={handleTravelerCountUpdate}
-          className="w-24 border border-gray-300 rounded px-3 py-2 text-black focus:ring-blue-500 focus:outline-none focus:ring-2"
+          className="w-24 border border-gray-300 rounded px-3 py-2 text-black focus:ring-[var(--color-primary)] focus:outline-none focus:ring-2"
         />
         <p className="text-sm text-gray-500 mt-1">
           Máximo 10 viajeros permitidos.
@@ -119,15 +119,15 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
         {formData.travelers.map((traveler, index) => (
           <div
             key={index}
-            className="border border-gray-300 rounded-lg p-4 bg-white bg-opacity-80 shadow-sm"
+            className="border border-gray-300 rounded-lg p-4 bg-[var(--color-primary)] bg-opacity-80 shadow-sm"
           >
-            <h3 className="text-lg font-semibold mb-4 text-blue-600">
+            <h3 className="text-lg font-semibold mb-4 text-white">
               Viajero {index + 1}
             </h3>
 
             {/* Nombre */}
             <div className="mb-4">
-              <label className="block font-medium text-gray-700 mb-1">
+              <label className="block font-medium text-white mb-1">
                 Nombre completo
               </label>
               <input
@@ -138,13 +138,13 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
                   updated[index].fullName = e.target.value;
                   setFormData({ ...formData, travelers: updated });
                 }}
-                className="w-full border border-gray-300 rounded px-3 py-2 text-black focus:ring-blue-500 focus:outline-none focus:ring-2"
+                className="w-full border border-gray-300 rounded px-3 py-2 text-black focus:ring-[var(--color-primary)] focus:outline-none focus:ring-2 bg-white"
               />
             </div>
 
             {/* Fecha de nacimiento */}
             <div className="mb-4">
-              <label className="block font-medium text-gray-700 mb-1">
+              <label className="block font-medium text-white mb-1">
                 Fecha de nacimiento
               </label>
               <input
@@ -155,14 +155,14 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
                   updated[index].birthDate = e.target.value;
                   setFormData({ ...formData, travelers: updated });
                 }}
-                className="w-full border border-gray-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 bg-white rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
               />
             </div>
 
             {/* Documento */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block font-medium text-gray-700 mb-1">
+                <label className="block font-medium text-white mb-1">
                   Tipo de documento
                 </label>
                 <select
@@ -175,7 +175,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
                       | "Otro";
                     setFormData({ ...formData, travelers: updated });
                   }}
-                  className="w-full border border-gray-300 rounded px-3 py-2 text-black focus:ring-blue-500 focus:outline-none focus:ring-2"
+                  className="w-full border bg-white border-gray-300 rounded px-3 py-2 text-black focus:ring-[var(--color-primary)] focus:outline-none focus:ring-2"
                 >
                   <option value="DNI">DNI</option>
                   <option value="Pasaporte">Pasaporte</option>
@@ -184,7 +184,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
               </div>
 
               <div>
-                <label className="block font-medium text-gray-700 mb-1">
+                <label className="block font-medium text-white mb-1">
                   Número de documento
                 </label>
                 <input
@@ -196,7 +196,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
                     updated[index].documentNumber = e.target.value;
                     setFormData({ ...formData, travelers: updated });
                   }}
-                  className="w-full border border-gray-300 rounded px-3 py-2 text-black focus:ring-blue-500 focus:outline-none focus:ring-2"
+                  className="w-full border border-gray-300 bg-white rounded px-3 py-2 text-black focus:ring-[var(--color-primary)] focus:outline-none focus:ring-2"
                 />
               </div>
             </div>
@@ -212,6 +212,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
         <div className="flex gap-4">
           <label className="flex items-center text-gray-700 gap-2">
             <input
+              className="accent-[var(--color-primary)]"
               type="radio"
               checked={formData.withPets}
               onChange={() =>
@@ -226,6 +227,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
           </label>
           <label className="flex items-center text-gray-700 gap-2">
             <input
+              className="accent-[var(--color-primary)]"
               type="radio"
               checked={!formData.withPets}
               onChange={() =>
@@ -259,7 +261,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
                 );
                 setFormData({ ...formData, numberOfPets: corrected });
               }}
-              className="w-24 border border-gray-300 rounded px-3 py-2 text-black focus:ring-blue-500 focus:outline-none focus:ring-2"
+              className="w-24 border border-gray-300 rounded px-3 py-2 text-black focus:ring-[var(--color-primary)] focus:outline-none focus:ring-2"
             />
           </div>
         )}
@@ -273,6 +275,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
         <div className="flex gap-4">
           <label className="flex items-center gap-2 text-gray-700">
             <input
+              className="accent-[var(--color-primary)]"
               type="radio"
               checked={formData.withExtraBags}
               onChange={() =>
@@ -287,6 +290,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
           </label>
           <label className="flex items-center gap-2 text-gray-700">
             <input
+              className="accent-[var(--color-primary)]"
               type="radio"
               checked={!formData.withExtraBags}
               onChange={() =>
@@ -324,7 +328,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
                 );
                 setFormData({ ...formData, numberOfBags: corrected });
               }}
-              className="w-24 border border-gray-300 rounded px-3 py-2 text-black focus:ring-blue-500 focus:outline-none focus:ring-2"
+              className="w-24 border border-gray-300 rounded px-3 py-2 text-black focus:ring-[var(--color-primary)] focus:outline-none focus:ring-2"
             />
           </div>
         )}
@@ -334,13 +338,13 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
       <div className="flex justify-between pt-6">
         <button
           onClick={back}
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded"
+          className="bg-[var(--color-quaternary-dark)] hover:bg-[var(--color-quaternary)] font-semibold text-gray-800 px-6 py-2 rounded"
         >
           ← Anterior
         </button>
         <button
           onClick={validateAndContinue}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg transition"
+          className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-semibold px-6 py-2 rounded-lg transition"
         >
           Siguiente →
         </button>

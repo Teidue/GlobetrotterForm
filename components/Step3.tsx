@@ -16,7 +16,7 @@ export default function Step3({ formData, setFormData, next, back }: Props) {
   const validateAndContinue = () => {
     if (
       formData.needsSpecialAssistance &&
-      formData.specialAssistanceNote.trim().length < 5
+      (formData.specialAssistanceNote || "").trim().length < 5
     ) {
       setError("Describe tu requerimiento con al menos 5 caracteres.");
       return;
@@ -28,7 +28,7 @@ export default function Step3({ formData, setFormData, next, back }: Props) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-blue-700 border-b pb-2">
+      <h2 className="text-2xl font-bold text-[var(--color-primary)] border-b pb-2">
         🧩 Paso 3: Servicios adicionales
       </h2>
 
@@ -40,6 +40,7 @@ export default function Step3({ formData, setFormData, next, back }: Props) {
         <div className="flex gap-4">
           <label className="flex items-center gap-2 text-gray-700">
             <input
+              className="accent-[var(--color-primary)]"
               type="radio"
               checked={formData.wantsInsurance}
               onChange={() =>
@@ -50,6 +51,7 @@ export default function Step3({ formData, setFormData, next, back }: Props) {
           </label>
           <label className="flex items-center gap-2 text-gray-700">
             <input
+              className="accent-[var(--color-primary)]"
               type="radio"
               checked={!formData.wantsInsurance}
               onChange={() =>
@@ -69,6 +71,7 @@ export default function Step3({ formData, setFormData, next, back }: Props) {
         <div className="flex gap-4">
           <label className="flex items-center gap-2 text-gray-700">
             <input
+              className="accent-[var(--color-primary)]"
               type="radio"
               checked={formData.wantsPreferentialSeat}
               onChange={() =>
@@ -79,6 +82,7 @@ export default function Step3({ formData, setFormData, next, back }: Props) {
           </label>
           <label className="flex items-center gap-2 text-gray-700">
             <input
+              className="accent-[var(--color-primary)]"
               type="radio"
               checked={!formData.wantsPreferentialSeat}
               onChange={() =>
@@ -98,6 +102,7 @@ export default function Step3({ formData, setFormData, next, back }: Props) {
         <div className="flex gap-4 mb-3">
           <label className="flex items-center gap-2 text-gray-700">
             <input
+              className="accent-[var(--color-primary)]"
               type="radio"
               checked={formData.needsSpecialAssistance}
               onChange={() =>
@@ -108,6 +113,7 @@ export default function Step3({ formData, setFormData, next, back }: Props) {
           </label>
           <label className="flex items-center gap-2 text-gray-700">
             <input
+              className="accent-[var(--color-primary)]"
               type="radio"
               checked={!formData.needsSpecialAssistance}
               onChange={() =>
@@ -138,7 +144,7 @@ export default function Step3({ formData, setFormData, next, back }: Props) {
               }
               className={`w-full border ${
                 error ? "border-red-500" : "border-gray-300"
-              } rounded px-3 py-2 text-black resize-none focus:ring-blue-500 focus:outline-none focus:ring-2`}
+              } rounded px-3 py-2 text-black resize-none focus:ring-text-[var(--color-primary)] focus:outline-none focus:ring-2`}
               rows={3}
             />
 
@@ -146,8 +152,9 @@ export default function Step3({ formData, setFormData, next, back }: Props) {
             {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
 
             {/* Feedback dinámico si aún no llega a 5 caracteres */}
-            {formData.specialAssistanceNote.length > 0 &&
-              formData.specialAssistanceNote.length < 5 && !error && (
+            {(formData.specialAssistanceNote || "").length > 0 &&
+              (formData.specialAssistanceNote || "").length < 5 &&
+              !error && (
                 <p className="text-xs text-yellow-600 mt-1">
                   Escribe al menos 5 caracteres.
                 </p>
@@ -160,13 +167,13 @@ export default function Step3({ formData, setFormData, next, back }: Props) {
       <div className="flex justify-between pt-6">
         <button
           onClick={back}
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded-lg"
+          className="bg-[var(--color-quaternary-dark)] hover:bg-[var(--color-quaternary)] font-semibold text-gray-800 px-6 py-2 rounded-lg"
         >
           ← Anterior
         </button>
         <button
           onClick={validateAndContinue}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg transition"
+          className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-semibold px-6 py-2 rounded-lg transition"
         >
           Siguiente →
         </button>

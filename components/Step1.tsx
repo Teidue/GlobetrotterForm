@@ -73,7 +73,7 @@ export default function Step1({ formData, setFormData, next }: Props) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-blue-700 border-b pb-2">
+      <h2 className="text-2xl font-bold text-[var(--color-primary)] border-b pb-2">
         🛫 Paso 1: Información del Viaje
       </h2>
 
@@ -84,7 +84,7 @@ export default function Step1({ formData, setFormData, next }: Props) {
           type="text"
           className={`w-full border ${
             errors.destination ? "border-red-500" : "border-gray-300"
-          } placeholder-gray-400 rounded-lg px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 transition`}
+          } placeholder-gray-400 rounded-lg px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition`}
           value={formData.destination}
           onChange={(e) => handleDestinationChange(e.target.value)}
           placeholder="Ej. París, Nueva York, Tokio"
@@ -120,7 +120,7 @@ export default function Step1({ formData, setFormData, next }: Props) {
             type="date"
             className={`w-full border ${
               errors.departureDate ? "border-red-500" : "border-gray-300"
-            } rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700`}
+            } rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-gray-700`}
             value={formData.departureDate}
             onChange={(e) =>
               setFormData({ ...formData, departureDate: e.target.value })
@@ -139,7 +139,7 @@ export default function Step1({ formData, setFormData, next }: Props) {
             type="date"
             className={`w-full border ${
               errors.returnDate ? "border-red-500" : "border-gray-300"
-            } rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700`}
+            } rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-gray-700`}
             value={formData.returnDate}
             onChange={(e) =>
               setFormData({ ...formData, returnDate: e.target.value })
@@ -163,7 +163,7 @@ export default function Step1({ formData, setFormData, next }: Props) {
                 key={clase}
                 className={`px-5 py-2 rounded-full border transition ${
                   formData.flightClass === clase
-                    ? "bg-blue-600 text-white border-blue-600"
+                    ? "bg-[var(--color-primary)] text-white border-[var(--color-primary)]"
                     : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                 }`}
                 onClick={() =>
@@ -181,7 +181,7 @@ export default function Step1({ formData, setFormData, next }: Props) {
       {/* BOTÓN SIGUIENTE */}
       <div className="text-right pt-4">
         <button
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg transition"
+          className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-semibold px-6 py-2 rounded-lg transition"
           onClick={validateAndContinue}
         >
           Siguiente →
