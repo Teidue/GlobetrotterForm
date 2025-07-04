@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function Step1({ formData, setFormData, next }: Props) {
-  const [flights, setFlights] = useState<FlightOption[]>([]);
+  
   const [filteredDestinations, setFilteredDestinations] = useState<string[]>([]);
   const [uniqueDestinations, setUniqueDestinations] = useState<string[]>([]);
 
@@ -24,7 +24,6 @@ export default function Step1({ formData, setFormData, next }: Props) {
 
   useEffect(() => {
     fetchFlightOptions().then((data) => {
-      setFlights(data);
       const uniques = [...new Set(data.map((f) => f.destination))];
       setUniqueDestinations(uniques);
     });

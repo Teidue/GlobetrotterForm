@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import { FormData } from "@/types/FormData";
 
 type Props = {
@@ -14,8 +14,7 @@ export default function Step2({ formData, setFormData, next, back }: Props) {
   const [localTravelerCount, setLocalTravelerCount] = useState(
     formData.numberOfTravelers
   );
-  const [errors, setErrors] = useState<string[]>([]); // errores por viajero
-  const [generalError, setGeneralError] = useState("");
+  const [errors, setErrors] = useState<string[]>([]); 
 
   const handleTravelerCountUpdate = () => {
     const count = Math.max(1, Math.min(10, localTravelerCount));
